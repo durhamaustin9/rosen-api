@@ -109,12 +109,10 @@ exports.updateUser = async (request, response) => {
     email: request.body.email
   }
 
-  // This check has to be separate because bcrypt can't encrypt a null/undefined
   if (request.body.password) {
     userInfo.password = bcrypt.hashSync(request.body.password, 8)
   }
 
-  // Checks for all valid request body params
   function clean (obj) {
     for (const propName in obj) {
       if (obj[propName] === null || obj[propName] === undefined) {

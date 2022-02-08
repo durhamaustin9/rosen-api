@@ -44,6 +44,7 @@ exports.createContact = async (request, response) => {
   const phone = request.body.phone
   const streetAddress = request.body.streetAddress
   const zip = request.body.zip
+  const state = request.body.state
   const notes = request.body.notes
 
   const userExists = await Contact.findOne({
@@ -65,6 +66,7 @@ exports.createContact = async (request, response) => {
     phone,
     streetAddress,
     zip,
+    state,
     notes
   }).then(() => {
     return response.status(200).json({ message: 'contact created' })
@@ -83,10 +85,10 @@ exports.updateContact = async (request, response) => {
     phone: request.body.phone,
     streetAddress: request.body.streetAddress,
     zip: request.body.zip,
+    state: request.body.state,
     notes: request.body.notes
   }
 
-  // Checks for all valid request body params
   function clean (obj) {
     for (const propName in obj) {
       if (obj[propName] === null || obj[propName] === undefined) {

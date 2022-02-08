@@ -28,6 +28,9 @@ const contact = (sequelize, DataTypes) => {
       zip: {
         type: DataTypes.STRING
       },
+      state: {
+        type: DataTypes.STRING
+      },
       notes: {
         type: DataTypes.STRING
       }
