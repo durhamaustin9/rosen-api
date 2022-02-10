@@ -10,7 +10,6 @@ exports.userLogin = async (request, response) => {
     const passwordValid = await bcrypt.compare(request.body.password, user.password)
     if (passwordValid) {
       const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET)
-
       response.status(200).json({ token: token })
     } else {
       response.status(400).json({ error: 'password incorrect' })

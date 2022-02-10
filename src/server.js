@@ -19,6 +19,7 @@ app.use(cors({
 
 app.use('/user', routes.user)
 app.use('/contact', routes.contact)
+app.use('/map', routes.map)
 
 app.use((request, response) => {
   response.status(301).send('404 - Page not found')

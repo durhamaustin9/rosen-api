@@ -6,7 +6,7 @@ const authenticator = passport.authenticate('jwt', { session: false })
 
 router.get('/', authenticator, contact.getContacts)
 
-router.get('/:id', authenticator, contact.getContactByID)
+router.get('/:id', authenticator, contact.getContactById)
 
 router.post('/create', authenticator, contact.createContact)
 

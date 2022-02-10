@@ -7,7 +7,7 @@ const contact = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true
       },
-      userID: {
+      userId: {
         type: DataTypes.INTEGER
       },
       firstName: {
@@ -23,6 +23,9 @@ const contact = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       streetAddress: {
+        type: DataTypes.STRING
+      },
+      city: {
         type: DataTypes.STRING
       },
       zip: {
